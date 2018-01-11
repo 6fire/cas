@@ -1,8 +1,6 @@
 package org.apereo.cas.configuration.model.core.audit
 
-import org.apereo.inspektr.audit.support.AbstractStringAuditTrailManager
 import org.springframework.boot.context.properties.NestedConfigurationProperty
-
 import java.io.Serializable
 
 /**
@@ -12,6 +10,12 @@ import java.io.Serializable
  * @since 5.0.0
  */
 class AuditProperties : Serializable {
+
+    /**
+     * Retrieve audit records from storage, starting from now
+     * and going back the indicated number of days in history.
+     */
+    var numberOfDaysInHistory = 30
 
     /**
      * Whether ticket validation events in the audit log should include
@@ -86,9 +90,11 @@ class AuditProperties : Serializable {
     var rest = AuditRestProperties()
 
     /**
-     * The audit format to use in the logs.
+     * Family of sub-properties pertaining to file-based audit destinations.
      */
-    var auditFormat: AbstractStringAuditTrailManager.AuditFormats = AbstractStringAuditTrailManager.AuditFormats.DEFAULT
+    @NestedConfigurationProperty
+    var slf4j = AuditSlf4jLogProperties()
+
 
     /**
      * Indicates whether catastrophic audit failures should simply be logged

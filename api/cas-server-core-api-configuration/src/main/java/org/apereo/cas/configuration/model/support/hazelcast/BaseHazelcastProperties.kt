@@ -24,20 +24,20 @@ open class BaseHazelcastProperties : Serializable {
         /**
          * Logging type property name.
          */
-        val LOGGING_TYPE_PROP = "hazelcast.logging.type"
+        const val LOGGING_TYPE_PROP = "hazelcast.logging.type"
         /**
          * Enable discovery.
          */
-        val HAZELCAST_DISCOVERY_ENABLED = "hazelcast.discovery.enabled"
+        const val HAZELCAST_DISCOVERY_ENABLED = "hazelcast.discovery.enabled"
 
         /**
          * Max num of seconds for heartbeat property name.
          */
-        val MAX_HEARTBEAT_SECONDS_PROP = "hazelcast.max.no.heartbeat.seconds"
+        const val MAX_HEARTBEAT_SECONDS_PROP = "hazelcast.max.no.heartbeat.seconds"
         /**
          * Ipv4 protocol stack.
          */
-        val IPV4_STACK_PROP = "hazelcast.prefer.ipv4.stack"
+        const val IPV4_STACK_PROP = "hazelcast.prefer.ipv4.stack"
 
         private const val serialVersionUID = 4204884717547468480L
     }

@@ -13,6 +13,12 @@ import org.apereo.cas.configuration.support.RequiresModule
 class AuditJdbcProperties : AbstractJpaProperties() {
 
     /**
+     * Execute the recording of audit records in async manner.
+     * This setting must almost always be set to true.
+     */
+    var isAsynchronous: Boolean = true
+
+    /**
      * Indicates how long audit records should be kept in the database.
      * This is used by the clean-up criteria to clean up after stale audit records.
      */

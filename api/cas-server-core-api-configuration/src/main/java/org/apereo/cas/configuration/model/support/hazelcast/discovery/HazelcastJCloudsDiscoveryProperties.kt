@@ -84,51 +84,51 @@ class HazelcastJCloudsDiscoveryProperties : Serializable {
         /**
          * JClouds provider property.
          */
-        val JCLOUDS_DISCOVERY_PROVIDER = "provider"
+        const val JCLOUDS_DISCOVERY_PROVIDER = "provider"
         /**
          * JClouds identity property.
          */
-        val JCLOUDS_DISCOVERY_IDENTITY = "identity"
+        const val JCLOUDS_DISCOVERY_IDENTITY = "identity"
         /**
          * JClouds credential property.
          */
-        val JCLOUDS_DISCOVERY_CREDENTIAL = "credential"
+        const val JCLOUDS_DISCOVERY_CREDENTIAL = "credential"
         /**
          * JClouds endpoint property.
          */
-        val JCLOUDS_DISCOVERY_ENDPOINT = "endpoint"
+        const val JCLOUDS_DISCOVERY_ENDPOINT = "endpoint"
         /**
          * JClouds zones property.
          */
-        val JCLOUDS_DISCOVERY_ZONES = "zones"
+        const val JCLOUDS_DISCOVERY_ZONES = "zones"
         /**
          * JClouds regions property.
          */
-        val JCLOUDS_DISCOVERY_REGIONS = "regions"
+        const val JCLOUDS_DISCOVERY_REGIONS = "regions"
         /**
          * JClouds tag-keys property.
          */
-        val JCLOUDS_DISCOVERY_TAG_KEYS = "tag-keys"
+        const val JCLOUDS_DISCOVERY_TAG_KEYS = "tag-keys"
         /**
          * JClouds tag-values property.
          */
-        val JCLOUDS_DISCOVERY_TAG_VALUES = "tag-values"
+        const val JCLOUDS_DISCOVERY_TAG_VALUES = "tag-values"
         /**
          * JClouds group property.
          */
-        val JCLOUDS_DISCOVERY_GROUP = "group"
+        const val JCLOUDS_DISCOVERY_GROUP = "group"
         /**
          * JClouds hz-port property.
          */
-        val JCLOUDS_DISCOVERY_HZ_PORT = "hz-port"
+        const val JCLOUDS_DISCOVERY_HZ_PORT = "hz-port"
         /**
          * JClouds role-name property.
          */
-        val JCLOUDS_DISCOVERY_ROLE_NAME = "role-name"
+        const val JCLOUDS_DISCOVERY_ROLE_NAME = "role-name"
         /**
          * JClouds credential path property.
          */
-        val JCLOUDS_DISCOVERY_CREDENTIAL_PATH = "credentialPath"
+        const val JCLOUDS_DISCOVERY_CREDENTIAL_PATH = "credentialPath"
 
         private const val serialVersionUID = -8281247687171101766L
     }

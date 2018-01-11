@@ -11,6 +11,13 @@ import org.apereo.cas.configuration.support.RequiresModule
  */
 @RequiresModule(name = "cas-server-support-audit-mongo")
 class AuditMongoDbProperties : SingleCollectionMongoDbProperties() {
+
+    /**
+     * Execute the recording of audit records in async manner.
+     * This setting must almost always be set to true.
+     */
+    var isAsynchronous: Boolean = true
+
     init {
         collection = "MongoDbCasAuditRepository"
     }

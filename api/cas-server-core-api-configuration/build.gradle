@@ -11,15 +11,15 @@ dependencies {
 
     optional libraries.springbootconfigmetadata
 
-    //For Kotlin
-    //kapt libraries.springbootconfigmetadata
+    //For Kotlin annotation processing
+    kapt libraries.springbootconfigmetadata
 
     api project(":api:cas-server-core-api-util")
     api project(":api:cas-server-core-api-authentication")
     api project(":api:cas-server-core-api-webflow")
 }
 
-/*task generateConfigurationMetadata(type: JavaExec) {
+task generateConfigurationMetadata(type: JavaExec) {
     doFirst {
         println "\nRunning CAS Spring configuration metadata processor in addition to the native " +
                 "Spring Boot metadata processor, to create configuration " +
@@ -29,10 +29,10 @@ dependencies {
     main = "org.apereo.cas.configuration.metadata.ConfigurationMetadataGenerator"
     classpath = sourceSets.main.runtimeClasspath
     args buildDir, projectDir.canonicalPath
-}*/
+}
 
-//compileJava.dependsOn(processResources)
+compileJava.dependsOn(processResources)
 
-/*if (!Boolean.getBoolean("skipNestedConfigMetadataGen")) {
+if (!Boolean.getBoolean("skipNestedConfigMetadataGen")) {
     jar.dependsOn(generateConfigurationMetadata)
-}*/
+}

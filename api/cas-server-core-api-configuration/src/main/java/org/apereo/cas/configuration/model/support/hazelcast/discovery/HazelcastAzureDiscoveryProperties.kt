@@ -57,32 +57,32 @@ class HazelcastAzureDiscoveryProperties : Serializable {
         /**
          * Microsoft Azure's client id property for discovery.
          */
-        val AZURE_DISCOVERY_CLIENT_ID = "client-id"
+        const val AZURE_DISCOVERY_CLIENT_ID = "client-id"
 
         /**
          * Microsoft Azure's client secret property for discovery.
          */
-        val AZURE_DISCOVERY_CLIENT_SECRET = "client-secret"
+        const val AZURE_DISCOVERY_CLIENT_SECRET = "client-secret"
 
         /**
          * Microsoft Azure's tenant id property for discovery.
          */
-        val AZURE_DISCOVERY_TENANT_ID = "tenant-id"
+        const val AZURE_DISCOVERY_TENANT_ID = "tenant-id"
 
         /**
          * Microsoft Azure's subscription id property for discovery.
          */
-        val AZURE_DISCOVERY_SUBSCRIPTION_ID = "subscription-id"
+        const val AZURE_DISCOVERY_SUBSCRIPTION_ID = "subscription-id"
 
         /**
          * Microsoft Azure's subscription id property for discovery.
          */
-        val AZURE_DISCOVERY_CLUSTER_ID = "cluster-id"
+        const val AZURE_DISCOVERY_CLUSTER_ID = "cluster-id"
 
         /**
          * Microsoft Azure's group name property for discovery.
          */
-        val AZURE_DISCOVERY_GROUP_NAME = "group-name"
+        const val AZURE_DISCOVERY_GROUP_NAME = "group-name"
 
         private const val serialVersionUID = 3861923784551442190L
     }

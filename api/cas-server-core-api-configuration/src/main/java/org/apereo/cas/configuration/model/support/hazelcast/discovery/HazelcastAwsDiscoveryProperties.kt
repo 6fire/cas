@@ -73,39 +73,39 @@ class HazelcastAwsDiscoveryProperties : Serializable {
         /**
          * AWS discovery access key property.
          */
-        val AWS_DISCOVERY_ACCESS_KEY = "access-key"
+        const val AWS_DISCOVERY_ACCESS_KEY = "access-key"
         /**
          * AWS discovery secret key property.
          */
-        val AWS_DISCOVERY_SECRET_KEY = "secret-key"
+        const val AWS_DISCOVERY_SECRET_KEY = "secret-key"
         /**
          * AWS discovery IAM role property.
          */
-        val AWS_DISCOVERY_IAM_ROLE = "iam-role"
+        const val AWS_DISCOVERY_IAM_ROLE = "iam-role"
         /**
          * AWS discovery  region property.
          */
-        val AWS_DISCOVERY_REGION = "region"
+        const val AWS_DISCOVERY_REGION = "region"
         /**
          * AWS discovery host header property.
          */
-        val AWS_DISCOVERY_HOST_HEADER = "host-header"
+        const val AWS_DISCOVERY_HOST_HEADER = "host-header"
         /**
          * AWS discovery security group name property.
          */
-        val AWS_DISCOVERY_SECURITY_GROUP_NAME = "security-group-name"
+        const val AWS_DISCOVERY_SECURITY_GROUP_NAME = "security-group-name"
         /**
          * AWS discovery  tag key property.
          */
-        val AWS_DISCOVERY_TAG_KEY = "tag-key"
+        const val AWS_DISCOVERY_TAG_KEY = "tag-key"
         /**
          * AWS discovery tag value property.
          */
-        val AWS_DISCOVERY_TAG_VALUE = "tag-value"
+        const val AWS_DISCOVERY_TAG_VALUE = "tag-value"
         /**
          * AWS discovery HZ port property.
          */
-        val AWS_DISCOVERY_PORT = "hz-port"
+        const val AWS_DISCOVERY_PORT = "hz-port"
 
         private const val serialVersionUID = -8281247687171101766L
     }
