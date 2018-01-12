@@ -21,7 +21,7 @@ public class CasConfigurationJasyptCipherExecutorTests {
     private Environment environment;
 
     static {
-        System.setProperty(CasConfigurationJasyptCipherExecutor.JasyptEncryptionParameters.PASSWORD.getName(), "P@$$w0rd");
+        System.setProperty(CasConfigurationJasyptCipherExecutor.JasyptEncryptionParameters.PASSWORD.getParameterName(), "P@$$w0rd");
     }
 
     private CasConfigurationJasyptCipherExecutor jasypt;
@@ -49,7 +49,7 @@ public class CasConfigurationJasyptCipherExecutorTests {
 
     @Test
     public void verifyDecryptionEncryptionPairFails() {
-        final String encVal = CasConfigurationJasyptCipherExecutor.ENCRYPTED_VALUE_PREFIX + "keyValue";
+        final String encVal = CasConfigurationJasyptCipherExecutor.Companion.getENCRYPTED_VALUE_PREFIX() + "keyValue";
         final String result = jasypt.decode(encVal);
         assertNull(result);
     }

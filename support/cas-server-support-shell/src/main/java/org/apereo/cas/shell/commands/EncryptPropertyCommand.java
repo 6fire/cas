@@ -64,7 +64,7 @@ public class EncryptPropertyCommand implements CommandMarker {
         cipher.setPassword(password);
         cipher.setProviderName(provider);
         cipher.setKeyObtentionIterations(iterations);
-        final String encrypted = CasConfigurationJasyptCipherExecutor.ENCRYPTED_VALUE_PREFIX + cipher.encryptValue(value);
+        final String encrypted = CasConfigurationJasyptCipherExecutor.Companion.getENCRYPTED_VALUE_PREFIX() + cipher.encryptValue(value);
         LOGGER.info("==== Encrypted Value ====\n{}", encrypted);
     }
 }

@@ -242,10 +242,11 @@ subprojects {
     }
 
     compileKotlin {
-        kotlinOptions.jvmTarget = project.targetCompatibility
+        kotlinOptions.jvmTarget = "$targetCompatibility"
+        kotlinOptions.javaParameters = true
     }
     compileTestKotlin {
-        kotlinOptions.jvmTarget = project.targetCompatibility
+        kotlinOptions.jvmTarget = "$targetCompatibility"
     }
 
     checkstyle {
