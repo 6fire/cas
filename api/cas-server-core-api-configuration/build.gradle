@@ -11,7 +11,7 @@ dependencies {
 
     optional libraries.springbootconfigmetadata
 
-    //For Kotlin annotation processing
+    // For Kotlin annotation processing
     kapt libraries.springbootconfigmetadata
 
     api project(":api:cas-server-core-api-util")

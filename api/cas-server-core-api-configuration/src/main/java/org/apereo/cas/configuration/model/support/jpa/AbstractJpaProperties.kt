@@ -39,7 +39,7 @@ abstract class AbstractJpaProperties : Serializable {
      */
     @RequiredProperty
     open var url = "jdbc:hsqldb:mem:cas-hsql-database"
-
+    
     /**
      * The database user.
      *
