@@ -209,7 +209,6 @@ class SamlIdPProperties : Serializable {
     }
 
     companion object {
-
         private const val serialVersionUID = -5848075783676789852L
     }
 }

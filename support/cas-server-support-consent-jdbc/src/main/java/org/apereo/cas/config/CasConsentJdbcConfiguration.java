@@ -46,12 +46,12 @@ public class CasConsentJdbcConfiguration {
     @RefreshScope
     @Bean
     public HibernateJpaVendorAdapter jpaConsentVendorAdapter() {
-        return JpaBeans.newHibernateJpaVendorAdapter(casProperties.getJdbc());
+        return JpaBeans.Companion.newHibernateJpaVendorAdapter(casProperties.getJdbc());
     }
     
     @Bean
     public DataSource dataSourceConsent() {
-        return JpaBeans.newDataSource(casProperties.getConsent().getJpa());
+        return JpaBeans.Companion.newDataSource(casProperties.getConsent().getJpa());
     }
 
     @Bean
@@ -63,7 +63,7 @@ public class CasConsentJdbcConfiguration {
     @Bean
     public LocalContainerEntityManagerFactoryBean consentEntityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean bean =
-                JpaBeans.newHibernateEntityManagerFactoryBean(
+                JpaBeans.Companion.newHibernateEntityManagerFactoryBean(
                         new JpaConfigDataHolder(
                                 jpaConsentVendorAdapter(),
                                 "jpaConsentContext",

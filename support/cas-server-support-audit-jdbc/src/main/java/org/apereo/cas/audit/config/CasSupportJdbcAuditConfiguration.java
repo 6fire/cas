@@ -68,9 +68,9 @@ public class CasSupportJdbcAuditConfiguration {
     @Lazy
     @Bean
     public LocalContainerEntityManagerFactoryBean inspektrAuditEntityManagerFactory() {
-        return JpaBeans.newHibernateEntityManagerFactoryBean(
+        return JpaBeans.Companion.newHibernateEntityManagerFactoryBean(
                 new JpaConfigDataHolder(
-                        JpaBeans.newHibernateJpaVendorAdapter(casProperties.getJdbc()),
+                        JpaBeans.Companion.newHibernateJpaVendorAdapter(casProperties.getJdbc()),
                         "jpaInspektrAuditContext",
                         CollectionUtils.wrap(AuditTrailEntity.class.getPackage().getName()),
                         inspektrAuditTrailDataSource()),
@@ -90,7 +90,7 @@ public class CasSupportJdbcAuditConfiguration {
 
     @Bean
     public DataSource inspektrAuditTrailDataSource() {
-        return JpaBeans.newDataSource(casProperties.getAudit().getJdbc());
+        return JpaBeans.Companion.newDataSource(casProperties.getAudit().getJdbc());
     }
 
     @Bean

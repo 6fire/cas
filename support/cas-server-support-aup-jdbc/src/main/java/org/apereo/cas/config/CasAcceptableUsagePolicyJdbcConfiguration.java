@@ -43,7 +43,7 @@ public class CasAcceptableUsagePolicyJdbcConfiguration {
         
         return new JdbcAcceptableUsagePolicyRepository(ticketRegistrySupport, 
                 casProperties.getAcceptableUsagePolicy().getAupAttributeName(),
-                JpaBeans.newDataSource(jdbc),
+                JpaBeans.Companion.newDataSource(jdbc),
                 jdbc.getTableName());
     }
 }

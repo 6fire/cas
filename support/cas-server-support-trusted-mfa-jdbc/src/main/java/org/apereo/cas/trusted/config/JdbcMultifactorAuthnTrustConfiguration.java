@@ -44,12 +44,12 @@ public class JdbcMultifactorAuthnTrustConfiguration {
     @RefreshScope
     @Bean
     public HibernateJpaVendorAdapter jpaMfaTrustedAuthnVendorAdapter() {
-        return JpaBeans.newHibernateJpaVendorAdapter(casProperties.getJdbc());
+        return JpaBeans.Companion.newHibernateJpaVendorAdapter(casProperties.getJdbc());
     }
     
     @Bean
     public DataSource dataSourceMfaTrustedAuthn() {
-        return JpaBeans.newDataSource(casProperties.getAuthn().getMfa().getTrusted().getJpa());
+        return JpaBeans.Companion.newDataSource(casProperties.getAuthn().getMfa().getTrusted().getJpa());
     }
 
     @Bean
@@ -61,7 +61,7 @@ public class JdbcMultifactorAuthnTrustConfiguration {
     @Bean
     public LocalContainerEntityManagerFactoryBean mfaTrustedAuthnEntityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean bean =
-                JpaBeans.newHibernateEntityManagerFactoryBean(
+                JpaBeans.Companion.newHibernateEntityManagerFactoryBean(
                         new JpaConfigDataHolder(
                                 jpaMfaTrustedAuthnVendorAdapter(),
                                 "jpaMfaTrustedAuthnContext",

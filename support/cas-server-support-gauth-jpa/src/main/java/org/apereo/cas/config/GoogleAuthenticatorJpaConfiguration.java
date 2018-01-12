@@ -49,12 +49,12 @@ public class GoogleAuthenticatorJpaConfiguration {
     @RefreshScope
     @Bean
     public HibernateJpaVendorAdapter jpaGoogleAuthenticatorVendorAdapter() {
-        return JpaBeans.newHibernateJpaVendorAdapter(casProperties.getJdbc());
+        return JpaBeans.Companion.newHibernateJpaVendorAdapter(casProperties.getJdbc());
     }
     
     @Bean
     public DataSource dataSourceGoogleAuthenticator() {
-        return JpaBeans.newDataSource(casProperties.getAuthn().getMfa().getGauth().getJpa().getDatabase());
+        return JpaBeans.Companion.newDataSource(casProperties.getAuthn().getMfa().getGauth().getJpa().getDatabase());
     }
 
     @Bean
@@ -67,7 +67,7 @@ public class GoogleAuthenticatorJpaConfiguration {
     @Bean
     public LocalContainerEntityManagerFactoryBean googleAuthenticatorEntityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean bean =
-                JpaBeans.newHibernateEntityManagerFactoryBean(
+                JpaBeans.Companion.newHibernateEntityManagerFactoryBean(
                         new JpaConfigDataHolder(
                                 jpaGoogleAuthenticatorVendorAdapter(),
                                 "jpaGoogleAuthenticatorContext",

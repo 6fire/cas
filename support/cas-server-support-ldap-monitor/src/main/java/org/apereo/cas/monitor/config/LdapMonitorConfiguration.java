@@ -34,7 +34,7 @@ public class LdapMonitorConfiguration {
     @Lazy
     @Bean
     public ThreadPoolExecutorFactoryBean pooledConnectionFactoryMonitorExecutorService() {
-        return Beans.newThreadPoolExecutorFactoryBean(casProperties.getMonitor().getLdap().getPool());
+        return Beans.Companion.newThreadPoolExecutorFactoryBean(casProperties.getMonitor().getLdap().getPool());
     }
 
     @Autowired

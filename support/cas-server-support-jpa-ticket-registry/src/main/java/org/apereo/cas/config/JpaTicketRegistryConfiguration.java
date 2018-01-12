@@ -69,9 +69,9 @@ public class JpaTicketRegistryConfiguration {
     @Lazy
     @Bean
     public LocalContainerEntityManagerFactoryBean ticketEntityManagerFactory() {
-        return JpaBeans.newHibernateEntityManagerFactoryBean(
+        return JpaBeans.Companion.newHibernateEntityManagerFactoryBean(
             new JpaConfigDataHolder(
-                JpaBeans.newHibernateJpaVendorAdapter(casProperties.getJdbc()),
+                JpaBeans.Companion.newHibernateJpaVendorAdapter(casProperties.getJdbc()),
                 "jpaTicketRegistryContext",
                 ticketPackagesToScan(),
                 dataSourceTicket()),
@@ -88,7 +88,7 @@ public class JpaTicketRegistryConfiguration {
     @Bean
     @ConditionalOnMissingBean(name = "dataSourceTicket")
     public DataSource dataSourceTicket() {
-        return JpaBeans.newDataSource(casProperties.getTicket().getRegistry().getJpa());
+        return JpaBeans.Companion.newDataSource(casProperties.getTicket().getRegistry().getJpa());
     }
 
     @Bean

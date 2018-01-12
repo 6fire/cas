@@ -221,7 +221,7 @@ public class JpaLockingStrategyTests {
     }
 
     private LockingStrategy newLockTxProxy(final String appId, final String uniqueId, final String ttl) {
-        final JpaLockingStrategy lock = new JpaLockingStrategy(appId, uniqueId, Beans.newDuration(ttl).getSeconds());
+        final JpaLockingStrategy lock = new JpaLockingStrategy(appId, uniqueId, Beans.Companion.newDuration(ttl).getSeconds());
         lock.entityManager = SharedEntityManagerCreator.createSharedEntityManager(factory);
         return (LockingStrategy) Proxy.newProxyInstance(
             JpaLockingStrategy.class.getClassLoader(),

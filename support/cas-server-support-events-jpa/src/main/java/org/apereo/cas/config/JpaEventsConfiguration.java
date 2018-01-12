@@ -42,12 +42,12 @@ public class JpaEventsConfiguration {
     @RefreshScope
     @Bean
     public HibernateJpaVendorAdapter jpaEventVendorAdapter() {
-        return JpaBeans.newHibernateJpaVendorAdapter(casProperties.getJdbc());
+        return JpaBeans.Companion.newHibernateJpaVendorAdapter(casProperties.getJdbc());
     }
 
     @Bean
     public DataSource dataSourceEvent() {
-        return JpaBeans.newDataSource(casProperties.getEvents().getJpa());
+        return JpaBeans.Companion.newDataSource(casProperties.getEvents().getJpa());
     }
     
     public List<String> jpaEventPackagesToScan() {
@@ -58,7 +58,7 @@ public class JpaEventsConfiguration {
     @Bean
     public LocalContainerEntityManagerFactoryBean eventsEntityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean bean =
-                JpaBeans.newHibernateEntityManagerFactoryBean(
+                JpaBeans.Companion.newHibernateEntityManagerFactoryBean(
                         new JpaConfigDataHolder(
                                 jpaEventVendorAdapter(),
                                 "jpaEventRegistryContext",

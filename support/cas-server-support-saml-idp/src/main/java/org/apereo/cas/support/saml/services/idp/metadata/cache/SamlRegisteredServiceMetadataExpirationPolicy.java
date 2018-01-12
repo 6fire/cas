@@ -44,7 +44,7 @@ public class SamlRegisteredServiceMetadataExpirationPolicy implements Expiry<Sam
         LOGGER.debug("Metadata for [{}] does not define caching policies", service.getName());
         if (StringUtils.isNotBlank(service.getMetadataExpirationDuration())) {
             LOGGER.debug("Service [{}] defines a cache expiration duration of [{}]", service.getName(), service.getMetadataExpirationDuration());
-            return Beans.newDuration(service.getMetadataExpirationDuration()).toNanos();
+            return Beans.Companion.newDuration(service.getMetadataExpirationDuration()).toNanos();
         }
         LOGGER.debug("Service [{}] does not define caching policies. Falling back onto default...", service.getName());
         return defaultExpiration;

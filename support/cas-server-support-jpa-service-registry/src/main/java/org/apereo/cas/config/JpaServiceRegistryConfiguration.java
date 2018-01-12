@@ -48,7 +48,7 @@ public class JpaServiceRegistryConfiguration {
     @RefreshScope
     @Bean
     public HibernateJpaVendorAdapter jpaServiceVendorAdapter() {
-        return JpaBeans.newHibernateJpaVendorAdapter(casProperties.getJdbc());
+        return JpaBeans.Companion.newHibernateJpaVendorAdapter(casProperties.getJdbc());
     }
 
     @Bean
@@ -64,7 +64,7 @@ public class JpaServiceRegistryConfiguration {
     @Lazy
     @Bean
     public LocalContainerEntityManagerFactoryBean serviceEntityManagerFactory() {
-        return JpaBeans.newHibernateEntityManagerFactoryBean(
+        return JpaBeans.Companion.newHibernateEntityManagerFactoryBean(
                 new JpaConfigDataHolder(
                         jpaServiceVendorAdapter(),
                         "jpaServiceRegistryContext",
@@ -83,7 +83,7 @@ public class JpaServiceRegistryConfiguration {
 
     @Bean
     public DataSource dataSourceService() {
-        return JpaBeans.newDataSource(casProperties.getServiceRegistry().getJpa());
+        return JpaBeans.Companion.newDataSource(casProperties.getServiceRegistry().getJpa());
     }
 
     @Bean

@@ -202,27 +202,7 @@ abstract class AbstractLdapProperties : Serializable {
      * Name of the authentication handler.
      */
     var name: String? = null
-
-    /**
-     * @return the user filter
-     */
-    /**
-     * @param filter the filter
-     */
-    var userFilter: String
-        @DeprecatedConfigurationProperty(reason = "userFilter is replaced with searchFilter instead.", replacement = "searchFilter")
-        @Deprecated("Since 5.2.\n" +
-                "      Gets user filter.\n" +
-                "     \n" +
-                "      ")
-        get() = throw NotImplementedException("userFilter is no longer supported. Use searchFilter instead")
-        @DeprecatedConfigurationProperty(reason = "userFilter is replaced with searchFilter instead.", replacement = "searchFilter")
-        @Deprecated("Since 5.2. \n" +
-                "      Sets user filter.\n" +
-                "     \n" +
-                "      ")
-        set(filter) = throw NotImplementedException("userFilter is no longer supported. Use searchFilter instead")
-
+    
     /**
      * The ldap type used to handle specific ops.
      */

@@ -50,12 +50,12 @@ public class U2FJpaConfiguration {
     @RefreshScope
     @Bean
     public HibernateJpaVendorAdapter jpaU2fVendorAdapter() {
-        return JpaBeans.newHibernateJpaVendorAdapter(casProperties.getJdbc());
+        return JpaBeans.Companion.newHibernateJpaVendorAdapter(casProperties.getJdbc());
     }
     
     @Bean
     public DataSource dataSourceU2f() {
-        return JpaBeans.newDataSource(casProperties.getAuthn().getMfa().getU2f().getJpa());
+        return JpaBeans.Companion.newDataSource(casProperties.getAuthn().getMfa().getU2f().getJpa());
     }
 
     public List<String> jpaU2fPackagesToScan() {
@@ -66,7 +66,7 @@ public class U2FJpaConfiguration {
     @Bean
     public LocalContainerEntityManagerFactoryBean u2fEntityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean bean =
-                JpaBeans.newHibernateEntityManagerFactoryBean(
+                JpaBeans.Companion.newHibernateEntityManagerFactoryBean(
                         new JpaConfigDataHolder(
                                 jpaU2fVendorAdapter(),
                                 "jpaU2fRegistryContext",

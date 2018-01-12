@@ -154,7 +154,7 @@ public class CasPersonDirectoryConfiguration {
         final Map<String, String> attrs = casProperties.getAuthn().getAttributeRepository().getStub().getAttributes();
         if (!attrs.isEmpty() && list.isEmpty()) {
             LOGGER.info("Found and added static attributes [{}] to the list of candidate attribute repositories", attrs.keySet());
-            list.add(Beans.newStubAttributeRepository(casProperties.getAuthn().getAttributeRepository()));
+            list.add(Beans.Companion.newStubAttributeRepository(casProperties.getAuthn().getAttributeRepository()));
         }
         return list;
     }
@@ -172,13 +172,13 @@ public class CasPersonDirectoryConfiguration {
                 if (jdbc.isSingleRow()) {
                     LOGGER.debug("Configured single-row JDBC attribute repository for [{}]", jdbc.getUrl());
                     jdbcDao = new SingleRowJdbcPersonAttributeDao(
-                        JpaBeans.newDataSource(jdbc),
+                        JpaBeans.Companion.newDataSource(jdbc),
                         jdbc.getSql()
                     );
                 } else {
                     LOGGER.debug("Configured multi-row JDBC attribute repository for [{}]", jdbc.getUrl());
                     jdbcDao = new MultiRowJdbcPersonAttributeDao(
-                        JpaBeans.newDataSource(jdbc),
+                        JpaBeans.Companion.newDataSource(jdbc),
                         jdbc.getSql()
                     );
                     LOGGER.debug("Configured multi-row JDBC column mappings for [{}] are [{}]", jdbc.getUrl(), jdbc.getColumnMappings());

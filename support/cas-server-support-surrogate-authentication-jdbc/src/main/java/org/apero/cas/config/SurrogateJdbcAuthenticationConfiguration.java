@@ -39,7 +39,7 @@ public class SurrogateJdbcAuthenticationConfiguration {
     public SurrogateAuthenticationService surrogateAuthenticationService() {
         final SurrogateAuthenticationProperties su = casProperties.getAuthn().getSurrogate();
         return new SurrogateJdbcAuthenticationService(su.getJdbc().getSurrogateSearchQuery(),
-                JpaBeans.newDataSource(su.getJdbc()),
+                JpaBeans.Companion.newDataSource(su.getJdbc()),
                 su.getJdbc().getSurrogateAccountQuery(), 
                 servicesManager);
     }

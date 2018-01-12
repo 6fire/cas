@@ -62,13 +62,13 @@ public class SamlIdPJpaMetadataConfiguration implements SamlRegisteredServiceMet
     @RefreshScope
     @Bean
     public HibernateJpaVendorAdapter jpaSamlMetadataVendorAdapter() {
-        return JpaBeans.newHibernateJpaVendorAdapter(casProperties.getJdbc());
+        return JpaBeans.Companion.newHibernateJpaVendorAdapter(casProperties.getJdbc());
     }
     
     @Bean
     public DataSource dataSourceSamlMetadata() {
         final SamlIdPMetadataProperties idp = casProperties.getAuthn().getSamlIdp().getMetadata();
-        return JpaBeans.newDataSource(idp.getJpa());
+        return JpaBeans.Companion.newDataSource(idp.getJpa());
     }
 
     @Bean
@@ -81,7 +81,7 @@ public class SamlIdPJpaMetadataConfiguration implements SamlRegisteredServiceMet
     public LocalContainerEntityManagerFactoryBean samlMetadataEntityManagerFactory() {
         final SamlIdPMetadataProperties idp = casProperties.getAuthn().getSamlIdp().getMetadata();
         final LocalContainerEntityManagerFactoryBean bean =
-            JpaBeans.newHibernateEntityManagerFactoryBean(
+            JpaBeans.Companion.newHibernateEntityManagerFactoryBean(
                 new JpaConfigDataHolder(
                     jpaSamlMetadataVendorAdapter(),
                     "jpaSamlMetadataContext",

@@ -33,7 +33,7 @@ public class JdbcCloudConfigBootstrapConfiguration implements PropertySourceLoca
 
         try {
             final JdbcCloudConnection connection = new JdbcCloudConnection(environment);
-            final DataSource dataSource = JpaBeans.newDataSource(connection);
+            final DataSource dataSource = JpaBeans.Companion.newDataSource(connection);
             final JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
             final List<Map<String, Object>> rows = jdbcTemplate.queryForList(connection.getSql());
             for (final Map row : rows) {

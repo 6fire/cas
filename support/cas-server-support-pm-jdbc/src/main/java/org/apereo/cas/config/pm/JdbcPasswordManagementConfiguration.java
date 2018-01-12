@@ -32,7 +32,7 @@ public class JdbcPasswordManagementConfiguration {
 
     @Bean
     public DataSource jdbcPasswordManagementDataSource() {
-        return JpaBeans.newDataSource(casProperties.getAuthn().getPm().getJdbc());
+        return JpaBeans.Companion.newDataSource(casProperties.getAuthn().getPm().getJdbc());
     }
     
     @RefreshScope

@@ -45,12 +45,12 @@ public class JpaYubiKeyConfiguration {
     @RefreshScope
     @Bean
     public HibernateJpaVendorAdapter jpaYubiKeyVendorAdapter() {
-        return JpaBeans.newHibernateJpaVendorAdapter(casProperties.getJdbc());
+        return JpaBeans.Companion.newHibernateJpaVendorAdapter(casProperties.getJdbc());
     }
 
     @Bean
     public DataSource dataSourceYubiKey() {
-        return JpaBeans.newDataSource(casProperties.getAuthn().getMfa().getYubikey().getJpa());
+        return JpaBeans.Companion.newDataSource(casProperties.getAuthn().getMfa().getYubikey().getJpa());
     }
 
     public List<String> jpaYubiKeyPackagesToScan() {
@@ -69,7 +69,7 @@ public class JpaYubiKeyConfiguration {
     @Bean
     public LocalContainerEntityManagerFactoryBean yubiKeyEntityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean bean =
-                JpaBeans.newHibernateEntityManagerFactoryBean(
+                JpaBeans.Companion.newHibernateEntityManagerFactoryBean(
                         new JpaConfigDataHolder(
                                 jpaYubiKeyVendorAdapter(),
                                 "jpaYubiKeyRegistryContext",

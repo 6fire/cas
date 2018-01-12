@@ -35,7 +35,7 @@ public class CasJdbcMonitorConfiguration {
     @Lazy
     @Bean
     public ThreadPoolExecutorFactoryBean pooledJdbcMonitorExecutorService() {
-        return Beans.newThreadPoolExecutorFactoryBean(casProperties.getMonitor().getJdbc().getPool());
+        return Beans.Companion.newThreadPoolExecutorFactoryBean(casProperties.getMonitor().getJdbc().getPool());
     }
 
     @Autowired
@@ -49,6 +49,6 @@ public class CasJdbcMonitorConfiguration {
     @ConditionalOnMissingBean(name = "monitorDataSource")
     @Bean
     public DataSource monitorDataSource() {
-        return JpaBeans.newDataSource(casProperties.getMonitor().getJdbc());
+        return JpaBeans.Companion.newDataSource(casProperties.getMonitor().getJdbc());
     }
 }

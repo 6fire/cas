@@ -729,8 +729,8 @@ public final class LdapUtils {
 
         cc.setUseSSL(l.isUseSsl());
         cc.setUseStartTLS(l.isUseStartTls());
-        cc.setConnectTimeout(Beans.newDuration(l.getConnectTimeout()));
-        cc.setResponseTimeout(Beans.newDuration(l.getResponseTimeout()));
+        cc.setConnectTimeout(Beans.Companion.newDuration(l.getConnectTimeout()));
+        cc.setResponseTimeout(Beans.Companion.newDuration(l.getResponseTimeout()));
 
         if (StringUtils.isNotBlank(l.getConnectionStrategy())) {
             final AbstractLdapProperties.LdapConnectionStrategy strategy =
@@ -829,8 +829,8 @@ public final class LdapUtils {
         pc.setMaxPoolSize(l.getMaxPoolSize());
         pc.setValidateOnCheckOut(l.isValidateOnCheckout());
         pc.setValidatePeriodically(l.isValidatePeriodically());
-        pc.setValidatePeriod(Beans.newDuration(l.getValidatePeriod()));
-        pc.setValidateTimeout(Beans.newDuration(l.getValidateTimeout()));
+        pc.setValidatePeriod(Beans.Companion.newDuration(l.getValidatePeriod()));
+        pc.setValidateTimeout(Beans.Companion.newDuration(l.getValidateTimeout()));
         return pc;
     }
 
@@ -866,12 +866,12 @@ public final class LdapUtils {
         final PoolConfig pc = newLdaptivePoolConfig(l);
         final BlockingConnectionPool cp = new BlockingConnectionPool(pc, bindCf);
 
-        cp.setBlockWaitTime(Beans.newDuration(l.getBlockWaitTime()));
+        cp.setBlockWaitTime(Beans.Companion.newDuration(l.getBlockWaitTime()));
         cp.setPoolConfig(pc);
 
         final IdlePruneStrategy strategy = new IdlePruneStrategy();
-        strategy.setIdleTime(Beans.newDuration(l.getIdleTime()));
-        strategy.setPrunePeriod(Beans.newDuration(l.getPrunePeriod()));
+        strategy.setIdleTime(Beans.Companion.newDuration(l.getIdleTime()));
+        strategy.setPrunePeriod(Beans.Companion.newDuration(l.getPrunePeriod()));
 
         cp.setPruneStrategy(strategy);
 
