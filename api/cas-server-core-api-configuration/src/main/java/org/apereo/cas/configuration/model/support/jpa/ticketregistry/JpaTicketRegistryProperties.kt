@@ -53,7 +53,7 @@ class JpaTicketRegistryProperties : AbstractJpaProperties() {
         /**
          * Default lock timeout is 1 hour.
          */
-        val DEFAULT_LOCK_TIMEOUT = "PT1H"
+        const val DEFAULT_LOCK_TIMEOUT = "PT1H"
 
         private val serialVersionUID = -8053839523783801072L
     }

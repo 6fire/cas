@@ -242,10 +242,10 @@ subprojects {
     }
 
     compileKotlin {
-        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.jvmTarget = project.targetCompatibility
     }
     compileTestKotlin {
-        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.jvmTarget = project.targetCompatibility
     }
 
     checkstyle {
@@ -315,8 +315,6 @@ subprojects {
             findbugsPlugins libraries.findbugscontrib
             findbugsPlugins libraries.findbugssec
         }
-        compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
-        compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
         testImplementation libraries.tests
     }
 }
